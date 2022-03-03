@@ -41,6 +41,7 @@ h1 {
 
 #control-center {
   max-height: 35%;
+  overflow: scroll;
   position: fixed;
   margin-left: auto;
   margin-right: auto;
