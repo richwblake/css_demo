@@ -1,5 +1,7 @@
-const [wrapToggleBtn, changeDirectionBtn, gapBtn] = document.getElementsByClassName('cc-btn');
+const [wrapToggleBtn, changeDirectionBtn, gapBtn, justifyBtn] = document.getElementsByClassName('cc-btn');
 const flexboxdiv = document.getElementById('flex-container');
+const justifyContentValues = ['flex-end', 'center', 'space-between', 'space-around', 'space-evenly', 'flex-start'];
+let currentJustifyValueIndex = 0;
 
 const addListenersToCCButtons = () => {
   wrapToggleBtn.addEventListener('click', () => {
@@ -34,6 +36,52 @@ const addListenersToCCButtons = () => {
       wrapDescription.textContent = `There is ${flexboxdiv.style.gap} between items`;
     }
   });
-}
 
-addListenersToCCButtons();  
+  justifyBtn.addEventListener('click', () => {
+    const wrapDescription = document.getElementsByClassName('description')[3];
+    if (currentJustifyValueIndex < 6) {
+      flexboxdiv.style.justifyContent = justifyContentValues[currentJustifyValueIndex];
+    } else {
+      currentJustifyValueIndex = 0;
+      flexboxdiv.style.justifyContent = justifyContentValues[currentJustifyValueIndex];
+    }
+    wrapDescription.textContent = `Value for justify-content: ${justifyContentValues[currentJustifyValueIndex]}`;
+    currentJustifyValueIndex++;
+  });
+};
+
+const fetchPokemon = async () => {
+  let pokemonArray = [];
+  for (let i = 1; i < 18; i++) {
+    const randomIndex = Math.floor(Math.random() * 499) + 1;
+    const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomIndex}`);
+    const data = await resp.json();
+
+    const pokemon = {
+      name: `#${i} ${data.name[0].toUpperCase() + data.name.slice(1)}`,
+      sprite: data.sprites.front_default,
+      types: data.types.map(type => type.type.name)
+    };
+    pokemonArray.push(pokemon);
+  }
+  addPokemonToDom(pokemonArray);
+};
+
+const addPokemonToDom = groupOfPokemon => {
+  const flexContainer = document.getElementById('flex-container');
+  for (let pokemon of groupOfPokemon) {
+    const pkDiv = document.createElement('div');
+    pkDiv.className = 'item';
+    const image = document.createElement('img');
+    image.src = pokemon.sprite;
+    const name = document.createElement('h5');
+    name.textContent = pokemon.name;
+    name.style.margin = '0';
+    pkDiv.appendChild(image);
+    pkDiv.appendChild(name);
+    flexContainer.appendChild(pkDiv);
+  }
+};
+
+addListenersToCCButtons();
+fetchPokemon();
