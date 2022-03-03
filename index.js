@@ -1,3 +1,4 @@
+console.info('%cWelcome to the site! Feel free to check out the github page here to see the code: https://github.com/richwblake/css_demo. You can fork and clone and mess with the stylesheet to understand flexbox even better :)\n\nhappy hacking!' , 'color:lightblue');
 const [wrapToggleBtn, changeDirectionBtn, gapBtn, justifyBtn] = document.getElementsByClassName('cc-btn');
 const flexboxdiv = document.getElementById('flex-container');
 const justifyContentValues = ['flex-end', 'center', 'space-between', 'space-around', 'space-evenly', 'flex-start'];
