@@ -7,6 +7,9 @@ body {
 
 #demo {
   margin: auto;
+  overflow-y: scroll;
+  min-height: min-content;
+  max-height: 400px;
 }
 
 h1 {
@@ -14,6 +17,7 @@ h1 {
 }
 
 #flex-container {
+  
   border: 1px solid black;
   border-radius: 8px;
   padding: 2rem;
@@ -42,7 +46,7 @@ h1 {
   margin-right: auto;
   left: 0;
   right: 0;
-  bottom: 5vh;
+  bottom: 1vh;
   text-align: center;
   width: 50%;
   padding: 0.5rem 1.5rem;
