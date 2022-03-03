@@ -14,7 +14,7 @@ h1 {
 }
 
 #flex-container {
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 8px;
   padding: 2rem;
   width: fit-content;
@@ -33,6 +33,7 @@ h1 {
   background-color: white;
   box-shadow: 3px 3px 7px;
   text-align: center;
+  font-size: 1.2rem;
 }
 
 #control-center {
@@ -46,7 +47,7 @@ h1 {
   width: 50%;
   padding: 0.5rem 1.5rem;
   margin-top: 4rem;
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 8px;
 }
 
@@ -77,5 +78,5 @@ h1 {
   text-align: center;
   width: fit-content;
   margin: 1rem auto 0 auto;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
